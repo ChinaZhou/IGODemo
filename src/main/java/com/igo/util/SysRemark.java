@@ -1,4 +1,4 @@
-package com.igo.base.util;
+package com.igo.util;
 
 import org.apache.commons.lang3.StringUtils;
 

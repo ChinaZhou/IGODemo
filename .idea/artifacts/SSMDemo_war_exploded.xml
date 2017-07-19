@@ -23,6 +23,7 @@
           <element id="library" level="project" name="Maven: redis.clients:jedis:2.1.0" />
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.5" />
           <element id="library" level="project" name="Maven: com.rabbitmq:amqp-client:3.6.5" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

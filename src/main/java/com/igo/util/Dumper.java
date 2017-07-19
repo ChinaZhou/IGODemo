@@ -1,4 +1,4 @@
-package com.igo.base.util;
+package com.igo.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
