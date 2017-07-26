@@ -52,8 +52,7 @@ public class MQSender {
         // 第二个参数routingKey是消息的路由Key，是用于Exchange将消息路由到指定的消息队列时使用(如果Exchange是Fanout Exchange，这个参数会被忽略),
         // 第三个参数props是消息包含的属性信息。RabbitMQ的消息属性和消息体是分开的，不像JMS消息那样同时包含在javax.jms.Message对象中，这一点需要特别注意。
         // 第四个参数body是RabbitMQ消息体。
-        this.channel.basicPublish("", this.queueName,
-                MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
+        this.channel.basicPublish("", this.queueName, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
     }
 
     public void close() throws IOException, TimeoutException {
@@ -97,4 +96,11 @@ public class MQSender {
         this.queueName = queueName;
     }
 
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
 }

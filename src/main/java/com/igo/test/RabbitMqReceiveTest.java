@@ -11,6 +11,11 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * 应答模式之confirm机制：消息接收
+ * basicAck：成功消费，消息从队列中删除
+ * basicNack：requeue=true，消息重新进入队列，false被删除
+ * basicReject：等同于basicNack
+ * basicRecover：消息重入队列，requeue=true，发送给新的consumer，false发送给相同的consumer
+ *
  * Created by Administrator on 2017/7/19.
  */
 public class RabbitMqReceiveTest {
