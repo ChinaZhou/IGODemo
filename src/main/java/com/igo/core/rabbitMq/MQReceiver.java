@@ -41,12 +41,19 @@ public class MQReceiver {
         Connection connection = factory.newConnection();
         this.channel = connection.createChannel();
 
+        //是否持久化
         boolean durable = true;
         //设置队列持久化
         this.channel.queueDeclare(queueName, durable, false, false, null);
+        //在4.X中已被废弃，缺点：1、不支持自动连接恢复；2、数据量过大时容易产生内存溢出
         this.consumer = new QueueingConsumer(this.channel);
+        //是否自动应答
         boolean autoAck = false;
+        //第一个参数是Consumer绑定的队列名，
+        // 第二个参数是自动确认标志，如果为true，表示Consumer接受到消息后，会自动发确认消息(Ack消息)给消息队列，消息队列会将这条消息从消息队列里删除，
+        // 第三个参数就是Consumer对象，用于处理接收到的消息。
         this.channel.basicConsume(queueName, autoAck, this.consumer);
+        //设置每个消费者在同一时间只有prefetchCount个消息在处理
         this.channel.basicQos(this.prefetchCount);
     }
 
