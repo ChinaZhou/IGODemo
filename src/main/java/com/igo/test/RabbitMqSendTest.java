@@ -11,7 +11,8 @@ public class RabbitMqSendTest {
 
     public static void main(String[] args) {
         //RabbitMqUtil.sendMes(RabbitMqQueueNames.TEST, "how old are you !");
-        RabbitMqUtil.sendTransactionMes(RabbitMqQueueNames.TEST, "Hello World 3");
+        //RabbitMqUtil.sendTransactionMes(RabbitMqQueueNames.TEST, "Hello World 3");
+        RabbitMqUtil.sendFanoutMes("fanout_test", "fanout test 1");
     }
 
 }
